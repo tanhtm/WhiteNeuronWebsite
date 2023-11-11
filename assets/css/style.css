@@ -2501,8 +2501,16 @@ input[type=color] {
   opacity: 1;
 }
 .tp-header__logo img {
-  width: 157px;
+  min-width: 200px;
+  width: 90%;
   height: 100%;
+}
+@media only screen and (max-width:992px){
+  .tp-header__logo img {
+    width: 200px;
+    height: 100%;
+    min-width: unset;
+  }
 }
 .tp-header__main-menu ul {
   text-align: center;
@@ -2639,7 +2647,7 @@ input[type=color] {
   padding: 40px 0;
 }
 .tp-header__menu-space {
-  padding-top: 25px;
+  padding-top: 16px;
 }
 .tp-header__right {
   display: flex;
