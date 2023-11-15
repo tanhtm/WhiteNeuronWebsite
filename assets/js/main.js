@@ -32,9 +32,8 @@
 		$(".scroll-to-target").on('click', function () {
 		var target = $(this).attr('data-target');
 		// animate
-		$('html, body').animate({
-			scrollTop: $(target).offset().top
-		}, 1000);
+		$('html, body').scrollTop($(target).offset().top);
+
 	
 		});
 	}
@@ -44,9 +43,8 @@
 		$(".scroll-to-target-2").on('click', function () {
 		var target = $(this).attr('data-target');
 		// animate
-		$('html, body').animate({
-			scrollTop: $(target).offset().top
-		}, 1000);
+		$('html, body').scrollTop($(target).offset().top);
+
 	
 		});
 	}
@@ -55,9 +53,8 @@
 			var target = $(this.getAttribute('href'));
 			if (target.length) {
 				event.preventDefault();
-				$('html, body').stop().animate({
-					scrollTop: target.offset().top - 150
-				}, 1000);
+				$('html, body').scrollTop($(target).offset().top-150);
+
 			}
 		});
 	}
@@ -153,10 +150,7 @@ $(window).on('load', function () {
 
 	////////////////////////////////////////////////////
 	// 12. Counter Js
-	$('.counter').counterUp({
-		delay: 10,
-		time: 1000
-	});
+	$('.counter').countUp();
 
 	// 09. Home-1-Slider js
 	$('.tp-slider-active').slick({

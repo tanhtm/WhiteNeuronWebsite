@@ -1870,28 +1870,11 @@ input[type=color] {
   background-color: var(--tp-common-white);
   color: var(--tp-theme-1);
   position: relative;
+  border: 1px solid black;
   display: inline-block;
 }
-.breadcrumb__scroll-bottom a::after {
-  height: 25px;
-  width: 25px;
-  background-color: var(--tp-common-white);
-  border-radius: 50%;
-  content: "";
-  position: absolute;
-  right: -15px;
-  top: 20px;
-}
-.breadcrumb__scroll-bottom a::before {
-  height: 25px;
-  width: 25px;
-  background-color: var(--tp-common-white);
-  border-radius: 50%;
-  content: "";
-  position: absolute;
-  left: -15px;
-  top: 20px;
-}
+
+
 .breadcrumb__title {
   font-weight: 600;
   font-size: 65px;
@@ -6746,7 +6729,7 @@ blockquote cite::before {
 }
 
 .contact-info {
-  border: 1px solid var(--tp-grey-2);
+  border: 1px solid #ccc;
   padding: 40px;
   border-radius: 10px;
 }
@@ -6758,7 +6741,7 @@ blockquote cite::before {
 .contact-info .contact-icon {
   height: 60px;
   width: 60px;
-  border: 1px solid var(--tp-grey-2);
+  border: 1px solid #ccc;
   text-align: center;
   line-height: 60px;
   color: var(--tp-theme-2);
@@ -7015,13 +6998,18 @@ blockquote cite::before {
 .tp-footer-bottom__border-top {
   border-top: 1px solid #2C2F94;
 }
-.tp-footer-bottom__menu ul {
-  text-align: end;
+.tp-footer-bottom__menu{
+  width: 100%;
 }
+
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .tp-footer-bottom__menu ul {
     text-align: center;
     margin-bottom: 50px;
+  }
+  .tp-footer-bottom__social ul {
+    text-align: center;
   }
 }
 @media (max-width: 767px) {
@@ -7032,22 +7020,22 @@ blockquote cite::before {
 }
 .tp-footer-bottom__menu ul li {
   display: inline-block;
-  margin: 0px 30px;
+  margin: 10px 30px;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .tp-footer-bottom__menu ul li {
-    margin: 0px 20px;
+    margin: 10px 20px;
   }
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .tp-footer-bottom__menu ul li {
-    margin: 0px 15px;
+    margin: 10px 15px;
   }
 }
 @media (max-width: 767px) {
   .tp-footer-bottom__menu ul li {
     margin: 0;
-    margin: 0px 10px;
+    margin: 10px 10px;
   }
 }
 .tp-footer-bottom__menu ul li a {

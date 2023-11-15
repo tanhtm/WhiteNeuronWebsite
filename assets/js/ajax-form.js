@@ -1,48 +1,42 @@
-$(function() {
+$(document).ready(function () {
+	$('#contact-form').submit(function (e) {
+		// Lấy dữ liệu từ form
+		e.preventDefault()
+		const formData = {
+			name: $('[name="name"]').val(),
+			email: $('[name="email"]').val(),
+			phone: $('[name="phone"]').val(),
+			subject: $('[name="subject"]').val(),
+			message: $('[name="message"]').val()
+		};
 
-	// Get the form.
-	var form = $('#contact-form');
-
-	// Get the messages div.
-	var formMessages = $('.ajax-response');
-
-	// Set up an event listener for the contact form.
-	$(form).submit(function(e) {
-		// Stop the browser from submitting the form.
-		e.preventDefault();
-
-		// Serialize the form data.
-		var formData = $(form).serialize();
-
-		// Submit the form using AJAX.
-		$.ajax({
-			type: 'POST',
-			url: $(form).attr('action'),
-			data: formData
+		// Gửi dữ liệu bằng AJAX
+		const btn = document.querySelector('#contact-form')
+		const getHtml=btn.innerHTML
+		btn.innerHTML = `<span class="spinner-border" style="width: 3rem; height: 3rem;background-color:'black';" role="status" aria-hidden="true"></span>
+	<span class="sr-only">Sending...</span>`
+		fetch('http://localhost:3000/send-email', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(formData)
 		})
-		.done(function(response) {
-			// Make sure that the formMessages div has the 'success' class.
-			$(formMessages).removeClass('error');
-			$(formMessages).addClass('success');
+			.then(response => response.json())
+			.then(data => {
+				alert('Chúng tôi đã nhận được thư của bạn');
+				$('[name="name"]').val("")
+				$('[name="email"]').val("")
+				$('[name="phone"]').val("");
+				$('[name="subject"]').val("");
+				$('[name="message"]').val("");
+			})
+			.catch(e => {
+				alert('!Có lỗi xảy ra thử lại sau');
+			})
+			.finally(e=>{
+				btn.innerHTML=getHtml
+			})
 
-			// Set the message text.
-			$(formMessages).text(response);
-
-			// Clear the form.
-			$('#contact-form input,#contact-form textarea').val('');
-		})
-		.fail(function(data) {
-			// Make sure that the formMessages div has the 'error' class.
-			$(formMessages).removeClass('success');
-			$(formMessages).addClass('error');
-
-			// Set the message text.
-			if (data.responseText !== '') {
-				$(formMessages).text(data.responseText);
-			} else {
-				$(formMessages).text('Oops! An error occured and your message could not be sent.');
-			}
-		});
 	});
-
 });
