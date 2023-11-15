@@ -2731,9 +2731,7 @@ input[type=color] {
 .tp-header__menu-3 ul li a {
   padding: 40px 0;
 }
-.tp-header__menu-space {
-  padding:24px 8px;
-}
+
 .tp-header__right {
   display: flex;
   align-items: center;
