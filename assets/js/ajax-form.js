@@ -12,10 +12,10 @@ $(document).ready(function () {
 
 		// Gửi dữ liệu bằng AJAX
 		const btn = document.querySelector('#contact-form')
-		const getHtml=btn.innerHTML
+		const getHtml = btn.innerHTML
 		btn.innerHTML = `<span class="spinner-border" style="width: 3rem; height: 3rem;background-color:'black';" role="status" aria-hidden="true"></span>
 	<span class="sr-only">Sending...</span>`
-		fetch('http://localhost:3000/send-email', {
+		fetch('https://service.thangdev.online/send-email', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -34,8 +34,8 @@ $(document).ready(function () {
 			.catch(e => {
 				alert('!Có lỗi xảy ra thử lại sau');
 			})
-			.finally(e=>{
-				btn.innerHTML=getHtml
+			.finally(e => {
+				btn.innerHTML = getHtml
 			})
 
 	});
