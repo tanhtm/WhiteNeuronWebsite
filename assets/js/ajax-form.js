@@ -15,7 +15,7 @@ $(document).ready(function () {
 		const getHtml = btn.innerHTML
 		btn.innerHTML = `<span class="spinner-border" style="width: 3rem; height: 3rem;background-color:'black';" role="status" aria-hidden="true"></span>
 	<span class="sr-only">Sending...</span>`
-		fetch('https://service.thangdev.online/send-email', {
+		fetch('https://service.whiteneurons.com/send-email', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

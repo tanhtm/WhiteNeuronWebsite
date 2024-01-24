@@ -3055,7 +3055,7 @@ input[type=color] {
 }
 .tp-hero__thumb-3 img {
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
   aspect-ratio: 1;
 }
